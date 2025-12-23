@@ -190,6 +190,157 @@
         </div>
     </section>
 
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4 section-heading">Cone Calculator</h2>
+            <div class="row">
+                <div class="col-md-4 col-12">
+                                <div class="row flex-column">
+                <div class="col mb-3">
+                    <label for="material" class="form-label">Steel or Aluminum</label>
+                    <select id="material" onchange="calculateCone()" class="form-select" aria-label="Default select example">
+                        <option selected value="steel">Steel</option>
+                        <option value="aluminium">Aluminium</option>
+                    </select>
+                </div>
+                <div class="col mb-3">
+                    <label for="side" class="form-label">Inside or Outside</label>
+                    <select id="side" onchange="calculateCone()" class="form-select" aria-label="Default select example">
+                        <option selected value="inside">Inside</option>
+                        <option value="outside">Outside</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="thickness" class="form-label">Thickness</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="thickness" onkeyup="calculateCone()" onchange="calculateCone()" class="form-control" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="minorDiameter" class="form-label">Minor Diameter</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="minorDiameter" onkeyup="calculateCone()" onchange="calculateCone()" class="form-control" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="majorDiameter" class="form-label">Major Diameter</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="majorDiameter" onkeyup="calculateCone()" onchange="calculateCone()" class="form-control" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                 <div class="col">
+                    <label for="height" class="form-label">Height</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="height" onkeyup="calculateCone()" onchange="calculateCone()" class="form-control" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                 <div class="col">
+                    <label for="Pcs Per Cone"  class="form-label"># Of Pcs Per Cone</label>
+                    <input type="number" id="pcs" class="form-control" value="1" onkeyup="calculateCone()" onchange="calculateCone()">
+                </div>
+            </div>
+                </div>
+                <div class="col-md-4 col-12">
+                                <div class="row flex-column">
+
+                <div class="col">
+                    <label for="slantHeight" class="form-label">Slant Height</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="slantHeight" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="wallAngle" class="form-label">Wall Angle</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" id="wallAngle" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="includedAngle" class="form-label">Included Angle</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" id="includedAngle" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                 <div class="col">
+                    <label for="flatRadiusIn" class="form-label">Flat Pattern Inside Radius</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" id="flatRadiusIn" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                 <div class="col">
+                    <label for="flatRadiusOut" class="form-label">Flat Pattern Outside Radius</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" id="flatRadiusOut" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="flatAngle" class="form-label">Flat Pattern Degrees</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="flatAngle" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">degrees</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="grossWidth" class="form-label">Gross Rectangle Width (per pc)</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="grossWidth" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">inches</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="grossLength" class="form-label">Gross Rectangle Length (per pc)</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="grossLength" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">inches</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="grossWeightPerPct" class="form-label">Gross Rectangle Weight (per pc)</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="grossWeightPerPc" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">lbs</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="grossWeightTotal" class="form-label">Gross Weight (total)</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="grossWeightTotal" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">lbs</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="netWeightPerPc" class="form-label">Net Weight (per piece)</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="netWeightPerPc" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">lbs</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="netWeightWhole" class="form-label">Net Weight (whole cone)</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="netWeightWhole" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">lbs</span>
+                    </div>
+                </div>
+            </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <img src="images/cone1.jpg" alt="coneone">
+                    <img src="images/cone2.jpg" alt="conetwo">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="products" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center mb-5 section-heading">PRODUCTS</h2>
@@ -570,5 +721,97 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+function calculateCone() {
+
+  // ===== INPUTS (same as your old code) =====
+  const thickness = parseFloat(document.getElementById("thickness").value) || 0;
+  const dMinor    = parseFloat(document.getElementById("minorDiameter").value) || 0;
+  const dMajor    = parseFloat(document.getElementById("majorDiameter").value) || 0;
+  const height    = parseFloat(document.getElementById("height").value) || 0;
+  const pcs       = parseInt(document.getElementById("pcs").value) || 1;
+
+  const material  = document.getElementById("material").value;
+
+  if (!dMinor || !dMajor || !height || !thickness) return;
+
+  // ===== MATERIAL DENSITY =====
+  const density = material === "steel" ? 0.283 : 0.0975;
+
+  const r1 = dMinor / 2;
+  const r2 = dMajor / 2;
+
+  // ===== SLANT HEIGHT (FIXED) =====
+  const slantHeight = Math.sqrt(
+    Math.pow(height, 2) + Math.pow(r2 - r1, 2)
+  );
+
+  // ===== ANGLES =====
+  const wallAngle = Math.atan((r2 - r1) / height) * 180 / Math.PI;
+  const includedAngle = wallAngle * 2;
+
+  // ===== NEUTRAL RADII (IMPORTANT FIX) =====
+  const r1n = r1 + thickness / 2;
+  const r2n = r2 + thickness / 2;
+
+  // ===== FLAT PATTERN RADII (FIXED) =====
+  const flatRadiusInside  = (slantHeight * r1n) / (r2n - r1n);
+  const flatRadiusOutside = (slantHeight * r2n) / (r2n - r1n);
+
+  // ===== FLAT ANGLE (FIXED) =====
+  const thetaRad = (2 * Math.PI * r2n) / flatRadiusOutside;
+  const flatAngle = thetaRad * 180 / Math.PI;
+
+  // ===== GROSS RECTANGLE SIZE (FIXED) =====
+  const trimAllowance = 2.1; // same as CMRP
+  const grossWidth  = slantHeight + trimAllowance;
+  const grossLength = thetaRad * flatRadiusOutside;
+
+  // ===== WEIGHTS (THIS WAS YOUR MAIN ISSUE) =====
+  const rectangleArea = grossWidth * grossLength;
+
+  // Gross rectangle weight (per piece)
+  const grossRectWeightPerPc =
+    rectangleArea * thickness * density;
+
+  // Gross weight (TOTAL)
+  const grossWeightTotal =
+    grossRectWeightPerPc * pcs;
+
+  // Net weight (per piece)
+  const netWeightPerPc =
+    grossRectWeightPerPc * 0.84;
+
+  // Net weight (whole cone)
+  const netWeightWhole =
+    netWeightPerPc * pcs;
+
+  // ===== OUTPUT (OLD STYLE – DIRECT ASSIGN) =====
+  document.getElementById("slantHeight").value = slantHeight.toFixed(2);
+  document.getElementById("wallAngle").value = wallAngle.toFixed(2);
+  document.getElementById("includedAngle").value = includedAngle.toFixed(2);
+
+  document.getElementById("flatRadiusIn").value = flatRadiusInside.toFixed(3);
+  document.getElementById("flatRadiusOut").value = flatRadiusOutside.toFixed(3);
+  document.getElementById("flatAngle").value = flatAngle.toFixed(3);
+
+  document.getElementById("grossWidth").value = grossWidth.toFixed(1);
+  document.getElementById("grossLength").value = grossLength.toFixed(1);
+
+  document.getElementById("grossWeightPerPc").value =
+    grossRectWeightPerPc.toFixed(2);
+
+  document.getElementById("grossWeightTotal").value =
+    grossWeightTotal.toFixed(2);
+
+  document.getElementById("netWeightPerPc").value =
+    netWeightPerPc.toFixed(2);
+
+  document.getElementById("netWeightWhole").value =
+    netWeightWhole.toFixed(2);
+}
+</script>
+
 </body>
 </html>
