@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEKELAMANI FABRICATIONS</title>
+      <link rel="stylesheet" href="style.css">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+  <!-- Slider -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Own Script -->
+  <script src="script.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+
+      <div class="hero_bg">
+        <div id="header"></div>
+    </div>
+
+    <section id="calculator" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4 section-heading">Cone Calculator</h2>
+            <div class="row">
+                <div class="col-md-4 col-12">
+                                <div class="row flex-column">
+                <div class="col mb-3">
+                    <label for="material" class="form-label">Steel or Aluminum</label>
+                    <select id="material" onchange="calculateCone()" class="form-select" aria-label="Default select example">
+                        <option selected value="steel">Steel</option>
+                        <option value="aluminium">Aluminium</option>
+                    </select>
+                </div>
+                <div class="col mb-3">
+                    <label for="side" class="form-label">Inside or Outside</label>
+                    <select id="side" onchange="calculateCone()" class="form-select" aria-label="Default select example">
+                        <option selected value="inside">Inside</option>
+                        <option value="outside">Outside</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="thickness" class="form-label">Thickness</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="thickness" onkeyup="calculateCone()" onchange="calculateCone()" class="form-control" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="minorDiameter" class="form-label">Minor Diameter</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="minorDiameter" onkeyup="calculateCone()" onchange="calculateCone()" class="form-control" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="majorDiameter" class="form-label">Major Diameter</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="majorDiameter" onkeyup="calculateCone()" onchange="calculateCone()" class="form-control" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                 <div class="col">
+                    <label for="height" class="form-label">Height</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="height" onkeyup="calculateCone()" onchange="calculateCone()" class="form-control" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                 <div class="col">
+                    <label for="Pcs Per Cone"  class="form-label"># Of Pcs Per Cone</label>
+                    <input type="number" id="pcs" class="form-control" value="1" onkeyup="calculateCone()" onchange="calculateCone()">
+                </div>
+            </div>
+                </div>
+                <div class="col-md-4 col-12">
+                                <div class="row flex-column">
+
+                <div class="col">
+                    <label for="slantHeight" class="form-label">Slant Height</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="slantHeight" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="wallAngle" class="form-label">Wall Angle</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" id="wallAngle" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="includedAngle" class="form-label">Included Angle</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" id="includedAngle" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                 <div class="col">
+                    <label for="flatRadiusIn" class="form-label">Flat Pattern Inside Radius</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" id="flatRadiusIn" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                 <div class="col">
+                    <label for="flatRadiusOut" class="form-label">Flat Pattern Outside Radius</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" id="flatRadiusOut" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Inches</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="flatAngle" class="form-label">Flat Pattern Degrees</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="flatAngle" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">degrees</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="grossWidth" class="form-label">Gross Rectangle Width (per pc)</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="grossWidth" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">inches</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="grossLength" class="form-label">Gross Rectangle Length (per pc)</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="grossLength" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">inches</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="grossWeightPerPc" class="form-label">Gross Rectangle Weight (per pc)</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="grossWeightPerPc" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">lbs</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="grossWeightTotal" class="form-label">Gross Weight (total)</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="grossWeightTotal" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">lbs</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="netWeightPerPc" class="form-label">Net Weight (per piece)</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="netWeightPerPc" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">lbs</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="netWeightWhole" class="form-label">Net Weight (whole cone)</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="netWeightWhole" class="form-control" readonly aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">lbs</span>
+                    </div>
+                </div>
+            </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <img src="images/cone1.jpg" alt="coneone">
+                    <img src="images/cone2.jpg" alt="conetwo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="footer-heading">WORKS & OFFICE</h5>
+                    <p class="mb-2">235-D Thadagam Road, Somayampalayam(PO),
+                      <br> 
+                      Coimbatore -641108</p>
+                    <a style="text-decoration: none;color: #fff;" href="tel:0422-2403873"><p class="mb-2"><i class="fas fa-phone-alt"></i> 0422-2403873</p></a>
+                    <!-- <p class="mb-2"><i class="fas fa-phone-alt"></i> +91 422 2666334</p>
+                    <p class="mb-0"><i class="fas fa-envelope"></i> info@anandhafab.com</p> -->
+                </div>
+
+                <div class="col-md-4 mb-3 d-flex justify-content-center">
+                    <!-- <div>
+                    <h5 class="footer-heading">OFFICE</h5>
+                    <p class="mb-2">141 Chopin Street, Troy Michigan 48083, USA.</p>
+                    <p class="mb-2"><i class="fas fa-phone-alt"></i> (734) 796-1464</p>
+                    <p class="mb-0"><i class="fas fa-envelope"></i> anandhafab@gmail.com</p>
+                    </div> -->
+                </div>
+
+                <div class="col-md-4 mb-3 text-md-end">
+                    <h5 class="footer-heading text-end">More Details</h5>
+                    <div class="d-inline-block text-center">
+                                                 <p class="mb-1"><a href="#" class="footer-link">Download E-Brochure</a></p>
+                    </div>
+
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center pt-3 mt-3">
+                <p class="mb-0 copyright">&copy; 2015 Mekalamanni Fabrications. Powered by Mekalamanni</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        
+function calculateCone() {
+
+  // ===== INPUT =====
+  const thickness = parseFloat(document.getElementById("thickness").value) || 0;
+  const dMinor    = parseFloat(document.getElementById("minorDiameter").value) || 0;
+  const dMajor    = parseFloat(document.getElementById("majorDiameter").value) || 0;
+  const height    = parseFloat(document.getElementById("height").value) || 0;
+  const pcs       = parseInt(document.getElementById("pcs").value) || 1;
+
+  const material  = document.getElementById("material").value;
+
+  if (!dMinor || !dMajor || !height || !thickness) return;
+
+  // ===== CMRP CALIBRATED CONSTANTS =====
+  const density       = material === "Steel" ? 0.284 : 0.0975;
+  const neutralFactor = 0.45;   // CMRP neutral axis
+  const trimAllowance = 2.1;    // inches
+  const netFactor     = 0.836;  // fabrication loss
+
+  const r1 = dMinor / 2;
+  const r2 = dMajor / 2;
+
+  // ===== SLANT HEIGHT =====
+  const slantHeight =
+    Math.sqrt(height * height + Math.pow(r2 - r1, 2));
+
+  // ===== ANGLES =====
+  const wallAngle =
+    Math.atan((r2 - r1) / height) * 180 / Math.PI;
+
+  const includedAngle =
+    wallAngle * 2;
+
+  // ===== NEUTRAL RADII =====
+  const r1n = r1 + thickness * neutralFactor;
+  const r2n = r2 + thickness * neutralFactor;
+
+  // ===== FLAT PATTERN RADII =====
+  const flatRadiusInside =
+    (slantHeight * r1n) / (r2n - r1n);
+
+  const flatRadiusOutside =
+    (slantHeight * r2n) / (r2n - r1n);
+
+  // ===== FLAT PATTERN ANGLE =====
+  const thetaRad =
+    (2 * Math.PI * r2n) / flatRadiusOutside;
+
+  const flatAngle =
+    thetaRad * 180 / Math.PI;
+
+  // ===== GROSS RECTANGLE =====
+  const grossWidth =
+    slantHeight + trimAllowance;
+
+  const grossLength =
+    Math.floor(thetaRad * flatRadiusOutside * 10) / 10; // truncate
+
+  // ===== WEIGHTS =====
+  const rectArea =
+    grossWidth * grossLength;
+
+  const grossRectWeightPerPc =
+    rectArea * thickness * density;
+
+  const grossWeightTotal =
+    grossRectWeightPerPc * pcs;
+
+  const netWeightPerPc =
+    grossRectWeightPerPc * netFactor;
+
+  const netWeightWhole =
+    netWeightPerPc * pcs;
+
+  // ===== OUTPUT =====
+  document.getElementById("slantHeight").value = slantHeight.toFixed(2);
+  document.getElementById("wallAngle").value = wallAngle.toFixed(2);
+  document.getElementById("includedAngle").value = includedAngle.toFixed(2);
+
+  document.getElementById("flatRadiusIn").value = flatRadiusInside.toFixed(3);
+  document.getElementById("flatRadiusOut").value = flatRadiusOutside.toFixed(3);
+  document.getElementById("flatAngle").value = flatAngle.toFixed(3);
+
+  document.getElementById("grossWidth").value = grossWidth.toFixed(1);
+  document.getElementById("grossLength").value = grossLength.toFixed(1);
+
+  document.getElementById("grossWeightPerPc").value =
+    grossRectWeightPerPc.toFixed(1);
+
+  document.getElementById("grossWeightTotal").value =
+    grossWeightTotal.toFixed(1);
+
+  document.getElementById("netWeightPerPc").value =
+    netWeightPerPc.toFixed(1);
+
+  document.getElementById("netWeightWhole").value =
+    netWeightWhole.toFixed(1);
+}
+</script>
+
+</body>
+</html>
